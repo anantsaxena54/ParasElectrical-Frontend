@@ -1,0 +1,38 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Logo with icon -->
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+          <path d="M6 4h7a5 5 0 0 1 0 10H9v6H6V4zm3 7h4a2 2 0 1 0 0-4H9v4z"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name">PARAS</span>
+        <span class="logo-sub">ELECTRICAL WORKS</span>
+      </div>
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="#home" class="active"><span class="nav-dot"></span>Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#contact" class="btn-quote">
+      <span>Get a quote</span>
+      <span class="btn-arrow">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </span>
+    </a>
+
+    <button class="mobile-toggle" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>

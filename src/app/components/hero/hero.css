@@ -1,0 +1,236 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-color);
+}
+
+/* Vertical dashed grid lines */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  /* Dashed line pattern */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.12) 2px, transparent 2px);
+  background-size: 1px 6px;
+  background-repeat: repeat-y;
+  /* Position lines at 4rem (start), 25%, 50%, 75%, and end */
+  background-position: 
+    4rem 0, 
+    calc(4rem + (100% - 8rem) * 0.25) 0,
+    calc(4rem + (100% - 8rem) * 0.5) 0, 
+    calc(4rem + (100% - 8rem) * 0.75) 0,
+    calc(100% - 4rem) 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: var(--container-max);
+  width: 100%;
+  margin: 0 auto;
+  padding: 110px 4rem 0;
+}
+
+/* Badge pill */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 8px 16px;
+  width: fit-content;
+  margin-bottom: 32px;
+  margin-top: 24px;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 3px;
+  background: var(--accent-color);
+}
+
+.badge-text {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+  letter-spacing: 0.3px;
+}
+
+/* Split hero layout */
+.hero-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 100px;
+  align-items: flex-start;
+  padding-bottom: 40px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6.5vw, 72px);
+  font-weight: 900;
+  line-height: 0.85;
+  color: var(--text-dark);
+  letter-spacing: -4px;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.hero-title-accent {
+  color: var(--accent-color);
+}
+
+/* Right column */
+.hero-desc-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-self: end;
+  text-align: right;
+}
+
+.since-tag {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.hero-desc {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: #5C5C5C;
+  line-height: 1.7;
+  text-align: right;
+  margin-bottom: 28px;
+  max-width: 380px;
+}
+
+/* Explore button */
+.btn-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: #151515;
+  color: #ffffff;
+  padding: 6px 6px 6px 18px;
+  height: 52px;
+  border-radius: 14px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 30px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-explore:hover {
+  transform: translateY(-2px);
+  background: #000000;
+}
+
+.btn-explore .explore-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-explore:hover .explore-arrow {
+  transform: scale(1.05);
+  background: var(--accent-hover);
+}
+
+.btn-explore svg {
+  width: 18px;
+  height: 18px;
+  stroke: #ffffff;
+  stroke-width: 2.5px;
+}
+
+/* Bottom bar */
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.location-text {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #151515;
+}
+
+.location-text strong {
+  color: #151515;
+  font-weight: 600;
+}
+
+.hero-scroll span {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #5C5C5C;
+  font-weight: 400;
+}
+
+.hero-coords {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #151515;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 900px) {
+  .hero-main {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+  }
+  .hero-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .hero-scroll, .hero-coords {
+    display: none;
+  }
+  .hero-image-strip {
+    height: 60px;
+  }
+}

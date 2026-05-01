@@ -1,0 +1,339 @@
+.services {
+  padding: 120px 0;
+  background-color: #ffffff;
+}
+
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 80px;
+}
+
+.services-title {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #151515;
+  max-width: 600px;
+  letter-spacing: -2px;
+}
+
+/* Service Item */
+.services-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  padding: 60px 0;
+  border-top: 1px solid #E0E0E0;
+}
+
+.service-item:last-child {
+  border-bottom: 1px solid #E0E0E0;
+}
+
+/* Left: Icon + Image */
+.service-left {
+  display: flex;
+  align-items: start;
+  gap: 32px;
+}
+
+.service-icon {
+  flex-shrink: 0;
+  color: #151515;
+  margin-top: 4px;
+}
+
+.service-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.service-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-item:hover .service-img img {
+  transform: scale(1.05);
+}
+
+/* Center: Name */
+.service-center {
+  display: flex;
+  align-items: start;
+}
+
+.service-name {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
+  color: #151515;
+  line-height: 1.2;
+}
+
+/* Right: Features + Arrow */
+.service-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 20px;
+}
+
+.features-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.features-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.features-list li {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: #151515;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.features-list li::before {
+  content: "✓";
+  color: var(--accent-color);
+  font-weight: 900;
+}
+
+/* Arrow Button */
+.btn-service-arrow {
+  width: 52px;
+  height: 52px;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.btn-service-arrow:hover {
+  background-color: #151515;
+  transform: translateX(4px);
+}
+
+/* Reuse Explore Button Style (Should be in global styles but defining here for now if needed) */
+.btn-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: #151515;
+  color: #ffffff;
+  padding: 6px 6px 6px 18px;
+  height: 52px;
+  border-radius: 14px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.explore-arrow {
+  width: 40px;
+  height: 40px;
+  background: var(--accent-color);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+/* Animation: Reveal on Scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays for service items */
+.service-item:nth-child(1) { transition-delay: 0.1s; }
+.service-item:nth-child(2) { transition-delay: 0.2s; }
+.service-item:nth-child(3) { transition-delay: 0.3s; }
+.service-item:nth-child(4) { transition-delay: 0.4s; }
+
+/* CTA Banner Section */
+.services-cta-wrapper {
+  margin-top: 100px;
+  position: relative;
+  padding-bottom: 200px; /* Space for the blur */
+}
+
+.cta-banner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+}
+
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%);
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.cta-title {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 800;
+  color: #ffffff;
+  max-width: 550px;
+  line-height: 1.1;
+}
+
+.btn-cta-contact {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #ffffff;
+  color: #151515;
+  padding: 6px 6px 6px 20px;
+  height: 56px;
+  border-radius: 16px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-cta-contact:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.cta-btn-arrow {
+  width: 44px;
+  height: 44px;
+  background: var(--accent-color);
+  color: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ambient Orange Blur */
+.ambient-orange-blur {
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 400px;
+  background: radial-gradient(circle, rgba(200, 55, 19, 0.4) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+@media (max-width: 1200px) {
+  .service-item {
+    grid-template-columns: 1fr 1fr;
+  }
+  .service-center {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .service-right {
+    grid-column: 1 / span 2;
+    margin-top: 20px;
+  }
+  .cta-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .services-title {
+    font-size: 44px;
+  }
+  .services-header {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .service-item {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .service-center, .service-right {
+    grid-column: 1;
+  }
+  .service-left {
+    flex-direction: column;
+  }
+  .cta-banner {
+    height: auto;
+    padding: 60px 40px;
+  }
+  .cta-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+}
+
+
