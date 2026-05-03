@@ -27,13 +27,15 @@
 }
 
 .logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--text-dark);
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--accent-color) 0%, #a82d0f 100%);
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 10px rgba(200, 55, 19, 0.25),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .logo-text {

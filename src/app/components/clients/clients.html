@@ -1,0 +1,40 @@
+<section class="clients">
+  <div class="marquee">
+    <div class="marquee-track">
+      @for (c of clients; track c.name) {
+        <div class="logo-tile">
+          @if (c.style === 'badge') {
+            <span class="logo-badge" [style.background]="c.bg" [style.color]="c.color">{{ c.mark }}</span>
+            <span class="logo-text" [style.color]="c.color === '#ffffff' ? '#0a0a0a' : c.color">{{ c.name }}</span>
+          } @else if (c.style === 'mono') {
+            <span class="logo-mono" [style.color]="c.color">{{ c.name.toUpperCase() }}</span>
+          } @else if (c.style === 'script') {
+            <span class="logo-script" [style.color]="c.color">{{ c.name }}</span>
+          } @else if (c.style === 'mark') {
+            <span class="logo-mark" [style.color]="c.color">{{ c.mark }}</span>
+            <span class="logo-text" [style.color]="c.color">{{ c.name }}</span>
+          } @else {
+            <span class="logo-plain" [style.color]="c.color">{{ c.name }}</span>
+          }
+        </div>
+      }
+      @for (c of clients; track $index) {
+        <div class="logo-tile" aria-hidden="true">
+          @if (c.style === 'badge') {
+            <span class="logo-badge" [style.background]="c.bg" [style.color]="c.color">{{ c.mark }}</span>
+            <span class="logo-text" [style.color]="c.color === '#ffffff' ? '#0a0a0a' : c.color">{{ c.name }}</span>
+          } @else if (c.style === 'mono') {
+            <span class="logo-mono" [style.color]="c.color">{{ c.name.toUpperCase() }}</span>
+          } @else if (c.style === 'script') {
+            <span class="logo-script" [style.color]="c.color">{{ c.name }}</span>
+          } @else if (c.style === 'mark') {
+            <span class="logo-mark" [style.color]="c.color">{{ c.mark }}</span>
+            <span class="logo-text" [style.color]="c.color">{{ c.name }}</span>
+          } @else {
+            <span class="logo-plain" [style.color]="c.color">{{ c.name }}</span>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

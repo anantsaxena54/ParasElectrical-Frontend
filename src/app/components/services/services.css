@@ -12,32 +12,45 @@
 
 .services-title {
   font-family: var(--font-display);
-  font-size: 64px;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
   font-weight: 900;
   line-height: 1.1;
   color: #151515;
   max-width: 600px;
-  letter-spacing: -2px;
+  letter-spacing: -1.2px;
 }
 
-/* Service Item */
+/* Service Item — sticky stack ("re-rack") */
 .services-list {
   display: flex;
   flex-direction: column;
+  gap: 28px;
+  /* Tall enough so each sticky card has scroll runway to stack */
+  padding-bottom: 20vh;
 }
 
 .service-item {
+  position: sticky;
+  top: var(--stack-top, 96px);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
   align-items: start;
-  padding: 60px 0;
-  border-top: 1px solid #E0E0E0;
+  padding: 48px 56px;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 22px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
-.service-item:last-child {
-  border-bottom: 1px solid #E0E0E0;
-}
+/* Progressive stack offset — each card pins slightly lower so the
+   previous card's edge peeks out, creating the re-rack effect. */
+.service-item:nth-child(1) { --stack-top: 96px; }
+.service-item:nth-child(2) { --stack-top: 116px; }
+.service-item:nth-child(3) { --stack-top: 136px; }
+.service-item:nth-child(4) { --stack-top: 156px; }
 
 /* Left: Icon + Image */
 .service-left {
@@ -79,7 +92,7 @@
 
 .service-name {
   font-family: var(--font-display);
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 800;
   color: #151515;
   line-height: 1.2;
@@ -194,11 +207,13 @@
   transform: translateY(0);
 }
 
-/* Staggered delays for service items */
-.service-item:nth-child(1) { transition-delay: 0.1s; }
-.service-item:nth-child(2) { transition-delay: 0.2s; }
-.service-item:nth-child(3) { transition-delay: 0.3s; }
-.service-item:nth-child(4) { transition-delay: 0.4s; }
+/* Sticky cards must not carry a translate transform (it breaks the
+   sticky containing block) — keep only the opacity portion of reveal. */
+.service-item.reveal {
+  opacity: 1;
+  transform: none;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
 /* CTA Banner Section */
 .services-cta-wrapper {
@@ -237,11 +252,11 @@
 
 .cta-title {
   font-family: var(--font-display);
-  font-size: 32px; /* Scaled down for smaller height */
+  font-size: 22px;
   font-weight: 800;
   color: #ffffff;
   max-width: 550px;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 .btn-cta-contact {
@@ -303,13 +318,13 @@
     margin-top: 20px;
   }
   .cta-title {
-    font-size: 32px;
+    font-size: 20px;
   }
 }
 
 @media (max-width: 900px) {
   .services-title {
-    font-size: 44px;
+    font-size: 32px;
   }
   .services-header {
     flex-direction: column;
